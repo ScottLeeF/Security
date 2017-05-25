@@ -22,7 +22,7 @@ namespace Microsoft.AspNetCore.Authentication.Cookies
             ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
             ExpireTimeSpan = TimeSpan.FromDays(14);
             SlidingExpiration = true;
-            CookieSameSite = SameSiteMode.Strict;
+            CookieSameSite = SameSiteMode.Lax;
             CookieHttpOnly = true;
             CookieSecure = CookieSecurePolicy.SameAsRequest;
             Events = new CookieAuthenticationEvents();
@@ -59,7 +59,8 @@ namespace Microsoft.AspNetCore.Authentication.Cookies
 
         /// <summary>
         /// Determines if the browser should allow the cookie to be attached to same-site or cross-site requests. The
-        /// default is Strict, which means the cookie is only allowed to be attached to same-site requests.
+        /// default is Lax, which means the cookie is only allowed to be attached to cross-site requests using safe 
+        /// HTTP methods and same-site requests.
         /// </summary>
         public SameSiteMode CookieSameSite { get; set; }
 

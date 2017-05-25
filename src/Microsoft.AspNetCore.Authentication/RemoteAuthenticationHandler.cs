@@ -203,7 +203,7 @@ namespace Microsoft.AspNetCore.Authentication
             var cookieOptions = new CookieOptions
             {
                 HttpOnly = true,
-                SameSite = SameSiteMode.Lax,
+                SameSite = SameSiteMode.Strict,
                 Secure = Request.IsHttps,
                 Expires = Clock.UtcNow.Add(Options.RemoteAuthenticationTimeout),
             };
@@ -243,7 +243,7 @@ namespace Microsoft.AspNetCore.Authentication
             var cookieOptions = new CookieOptions
             {
                 HttpOnly = true,
-                SameSite = SameSiteMode.Lax,
+                SameSite = SameSiteMode.Strict,
                 Secure = Request.IsHttps
             };
             Response.Cookies.Delete(cookieName, cookieOptions);
